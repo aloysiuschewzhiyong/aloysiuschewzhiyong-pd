@@ -7,10 +7,10 @@ const {
 const config: Config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   theme: {
     container: {
@@ -61,7 +61,22 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        reactive: '0px 3px 100px -3px hsl(var(--primary) / 0.2), 2px 3px 3px -2px hsl(var(--primary) / 0.2)'
+
+      },
+
       keyframes: {
+        spotlight: {
+          "0%": {
+            opacity: "0", // Change this to string
+            transform: "translate(-72%, -62%) scale(0.5)",
+          },
+          "100%": {
+            opacity: "1", // Change this to string
+            transform: "translate(-50%, -40%) scale(1)",
+          },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -82,19 +97,24 @@ const config: Config = {
             backgroundPosition: "350% 50%, 350% 50%",
           },
         },
+        "border-beam": {
+          "100%": {
+            "offset-distance": "100%",
+          },
+        }
       },
       animation: {
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         aurora: "aurora 60s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         grid: "grid 15s linear infinite",
+        spotlight: "spotlight 2s ease .75s 1 forwards",
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    addVariablesForColors
-  ],
+  plugins: [require("tailwindcss-animate"), addVariablesForColors,   require("tailwindcss-debug-screens"),],
+  
 };
 
 function addVariablesForColors({ addBase, theme }: any) {

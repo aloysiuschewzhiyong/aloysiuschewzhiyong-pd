@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scrollable-container" >
       <body className={cn("min-h-screen w-full flex overflow-auto bg-background", inter.className, "scrollable-container", { "debug-screens": process.env.NODE_ENV === "development" })}>
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class">
           <Navbar />
           <div>{children}</div>
         </ThemeProvider>
