@@ -62,7 +62,7 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        reactive: '0px 3px 20px -3px hsl(var(--primary) / 0.2), inset 0px 3px 40px -3px hsl(var(--primary) / 0.1)'
+        reactive: '0px 3px 20px -3px hsl(var(--primary) / 0.2), inset 0px 3px 6 0px -3px hsl(var(--primary) / 0.08)'
 
       },
 

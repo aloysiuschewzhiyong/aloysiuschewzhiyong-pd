@@ -35,7 +35,7 @@ const ScrollDrivenScribbles: React.FC<ScrollDrivenScribblesProps> = ({
 
   return (
     <div className="scroll-driven-scribbles flex">
-      <div className="relative grid h-[65vh] w-full">
+      <div className="relative grid h-[65vh] w-full ">
         <div
           ref={scribbleOverlayRef}
           className="scribble-overlay absolute z-20 w-full h-full flex justify-center items-center"
@@ -68,7 +68,9 @@ const ScrollDrivenScribbles: React.FC<ScrollDrivenScribblesProps> = ({
       </div>
       <div className="spacer"></div>
 
+
       <style jsx>{`
+
         path {
           stroke-width: 200;
           stroke-dasharray: 14144.1875;
