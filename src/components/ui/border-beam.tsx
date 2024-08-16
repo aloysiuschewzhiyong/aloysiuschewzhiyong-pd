@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
+import React from "react";
 
 interface BorderBeamProps {
   className?: string;
@@ -16,11 +18,16 @@ export const BorderBeam = ({
   size = 500,
   duration = 15,
   anchor = 90,
-  borderWidth = 1.5,
+  borderWidth = 2,
   colorFrom = "#2ba7ff",
   colorTo = "#fff",
   delay = 1,
 }: BorderBeamProps) => {
+  const { theme } = useTheme();
+
+  // Adjust borderWidth based on the theme
+  const adjustedBorderWidth = theme === "dark" ? 1.5 : 2;
+
   return (
     <div
       style={
@@ -28,7 +35,7 @@ export const BorderBeam = ({
           "--size": size,
           "--duration": duration,
           "--anchor": anchor,
-          "--border-width": borderWidth,
+          "--border-width": adjustedBorderWidth,
           "--color-from": colorFrom,
           "--color-to": colorTo,
           "--delay": `-${delay}s`,
