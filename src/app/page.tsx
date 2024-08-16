@@ -97,7 +97,6 @@ export default function Home() {
 
   const targetDivRef = useRef<HTMLDivElement>(null);
 
-
   useEffect(() => {
     const detectedDeviceType = getDeviceType();
     setDeviceType(detectedDeviceType);
@@ -112,7 +111,6 @@ export default function Home() {
       });
     }
   };
-  
 
   return (
     <div className="relative">
@@ -154,129 +152,129 @@ export default function Home() {
       </AuroraBackground>
 
       <FadeInWhenVisible>
-        <section className="min-h-[100vh]" ref={targetDivRef}> {/* Attach the ref to this section */}
+        <section className="min-h-[100vh]" ref={targetDivRef}>
+          {" "}
+          {/* Attach the ref to this section */}
           <div className="relative max-w-6xl mx-auto p-6 sm:p-8 md:p-10 lg:p-12 -mt-28 z-10">
             <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5}>
-            <div className="relative z-90  w-full rounded-2xl h-auto transform-gpu bg-transparent [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu  dark:[box-shadow:0_-10px_85px_-20px_#ffffff1f_inset] sm:dark:[box-shadow:0_-20px_69px_-20px_#ffffff1f_inset] md:[box-shadow:0_-20px_75px_-20px_#ffffff00_inset] transition-all duration-300 hover:[box-shadow:0_-35px_169px_-20px_#fffff000_inset] hover:dark:[box-shadow:0_-35px_172px_-20px_#ffffff1f_inset]">
-  <div className="relative z-40 w-full rounded-2xl bg-white/[0.69] dark:bg-black/[0.39] dark:[border:1px_solid_rgba(255,255,255,.1)] border backdrop-blur-md h-auto shadow-lg dark:shadow-reactive">
-    {/* Conditionally render BorderBeam only if device type is not Mobile */}
-    {deviceType !== "Mobile" && <BorderBeam />}
-    <div className="flex justify-start items-center space-x-1.5 p-4">
-      <span className="w-3 h-3 rounded-full bg-red-400 hover:bg-red-700"></span>
-      <span className="w-3 h-3 rounded-full bg-yellow-400 hover:bg-yellow-500"></span>
-      <span className="w-3 h-3 rounded-full bg-green-400 hover:bg-green-600"></span>
-    </div>
+              <div className="relative z-90  w-full rounded-2xl h-auto transform-gpu bg-transparent [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu  dark:[box-shadow:0_-10px_85px_-20px_#ffffff1f_inset] sm:dark:[box-shadow:0_-20px_69px_-20px_#ffffff1f_inset] md:[box-shadow:0_-20px_75px_-20px_#ffffff00_inset] transition-all duration-300 hover:[box-shadow:0_-35px_169px_-20px_#fffff000_inset] hover:dark:[box-shadow:0_-35px_172px_-20px_#ffffff1f_inset]">
+                <div className="relative z-40 w-full rounded-2xl bg-white/[0.69] dark:bg-black/[0.39] dark:[border:1px_solid_rgba(255,255,255,.1)] border backdrop-blur-md h-auto shadow-lg dark:shadow-reactive">
+                  {/* Conditionally render BorderBeam only if device type is not Mobile */}
+                  {deviceType !== "Mobile" && <BorderBeam />}
+                  <div className="flex justify-start items-center space-x-1.5 p-4">
+                    <span className="w-3 h-3 rounded-full bg-red-400 hover:bg-red-700"></span>
+                    <span className="w-3 h-3 rounded-full bg-yellow-400 hover:bg-yellow-500"></span>
+                    <span className="w-3 h-3 rounded-full bg-green-400 hover:bg-green-600"></span>
+                  </div>
 
-    <div> 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-9 gap-0 items-center mx-4 my-6 md:px-8 md:pb-10 lg:p-2  xl:px-14 xl:pb-16 xl:pt-6 ">
-      <div
-  className="m-10 sm:m-3 lg:m-20 xl:m-10 col-span-1 sm:col-span-1 md:col-span-4 text-white  z-10 rounded-full"
+                  <div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-9 gap-0 items-center mx-2 my-6 md:px-8 md:pb-10 lg:p-2  xl:px-14 xl:pb-16 xl:pt-6 ">
+                      <div className="m-12 sm:m-3 lg:m-20 xl:m-10 col-span-1 sm:col-span-1 md:col-span-4 text-white  z-10 rounded-full">
+                        <ScrollDrivenScribbles imagePath="/IMG_1035.JPG" />
+                      </div>
+                      <div className="mx-10 mt-12 sm:mt-0 col-span-1 sm:col-span-1 md:col-span-5 text-white rounded">
+                        <span className="bg-gradient-to-b from-gray-500 to-black bg-clip-text text-transparent dark:from-white dark:to-gray-400 font-bold leading-none text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                          About Me
+                        </span>
 
->
-  <ScrollDrivenScribbles imagePath="/IMG_1035.JPG" />
-</div>
-        <div className="mx-10 mt-12 sm:mt-0 col-span-1 sm:col-span-1 md:col-span-5 text-white rounded">
-          <span className="bg-gradient-to-b from-gray-500 to-black bg-clip-text text-transparent dark:from-white dark:to-gray-400 font-bold leading-none text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-            About Me
-          </span>
+                        <p className="mt-8 text-sm lg:text-base font-medium text-zinc-500 dark:text-zinc-300">
+                          Hi, my name is
+                          <span className="font-bold"> Aloysius Chew</span> and
+                          I am a year 3 student at Republic Polytechnic studying
+                          Digital Design and Development and working towards
+                          being a developer. This website will feature some of
+                          my works in the projects tab.
+                        </p>
 
-          <p className="mt-8 text-sm lg:text-base font-medium text-zinc-500 dark:text-zinc-300">
-            Hi, my name is 
-            <span className="font-bold"> Aloysius Chew</span> and I am a year 3 student at Republic Polytechnic studying Digital Design and Development and working towards being a developer. This website will feature some of my works in the projects tab.
-          </p>
+                        <div className="flex my-12 justify-between sm:justify-start sm:gap-2 md:gap-5 lg:gap-7 text-zinc-700 dark:text-zinc-300 pb-10 sm:pb-0">
+                          <TooltipWrapper
+                            name="Email"
+                            designation="Send me an email"
+                          >
+                            <Link
+                              href="mailto:aloysiuschewzhiyong@gmail.com"
+                              className={buttonVariants({
+                                variant: "outline",
+                                size: "icon",
+                              })}
+                            >
+                              <Mail />
+                            </Link>
+                          </TooltipWrapper>
 
-          <div className="flex my-12 justify-between sm:justify-start sm:gap-2 md:gap-5 lg:gap-7 text-zinc-700 dark:text-zinc-300 pb-10 sm:pb-0">
-            <TooltipWrapper
-              name="Email"
-              designation="Send me an email"
-            >
-              <Link
-                href="mailto:aloysiuschewzhiyong@gmail.com"
-                className={buttonVariants({
-                  variant: "outline",
-                  size: "icon",
-                })}
-              >
-                <Mail />
-              </Link>
-            </TooltipWrapper>
+                          <TooltipWrapper
+                            name="Github"
+                            designation="Check out my repos"
+                          >
+                            <Link
+                              href="https://github.com/aloysiuschewzhiyong"
+                              className={buttonVariants({
+                                variant: "outline",
+                                size: "icon",
+                              })}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Github />
+                            </Link>
+                          </TooltipWrapper>
 
-            <TooltipWrapper
-              name="Github"
-              designation="Check out my repos"
-            >
-              <Link
-                href="https://github.com/aloysiuschewzhiyong"
-                className={buttonVariants({
-                  variant: "outline",
-                  size: "icon",
-                })}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github />
-              </Link>
-            </TooltipWrapper>
+                          <TooltipWrapper
+                            name="Linkedin"
+                            designation="Connect with me"
+                          >
+                            <Link
+                              href="https://www.linkedin.com/in/aloysius-chew-880609244/"
+                              className={buttonVariants({
+                                variant: "outline",
+                                size: "icon",
+                              })}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Linkedin />
+                            </Link>
+                          </TooltipWrapper>
 
-            <TooltipWrapper
-              name="Linkedin"
-              designation="Connect with me"
-            >
-              <Link
-                href="https://www.linkedin.com/in/aloysius-chew-880609244/"
-                className={buttonVariants({
-                  variant: "outline",
-                  size: "icon",
-                })}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin />
-              </Link>
-            </TooltipWrapper>
+                          <TooltipWrapper
+                            name="Resume"
+                            designation="Take a look at my resume"
+                          >
+                            <Link
+                              href="/resume.pdf"
+                              className={buttonVariants({
+                                variant: "outline",
+                                size: "icon",
+                              })}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Newspaper />
+                            </Link>
+                          </TooltipWrapper>
 
-            <TooltipWrapper
-              name="Resume"
-              designation="Take a look at my resume"
-            >
-              <Link
-                href="/resume.pdf"
-                className={buttonVariants({
-                  variant: "outline",
-                  size: "icon",
-                })}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Newspaper />
-              </Link>
-            </TooltipWrapper>
-
-            <TooltipWrapper
-              name="Youtube"
-              designation="Support my hobby"
-            >
-              <Link
-                href="https://www.youtube.com/@chikennuggetcurrysauce"
-                className={buttonVariants({
-                  variant: "outline",
-                  size: "icon",
-                })}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Youtube />
-              </Link>
-            </TooltipWrapper>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-  </div>
-</div>
-
+                          <TooltipWrapper
+                            name="Youtube"
+                            designation="Support my hobby"
+                          >
+                            <Link
+                              href="https://www.youtube.com/@chikennuggetcurrysauce"
+                              className={buttonVariants({
+                                variant: "outline",
+                                size: "icon",
+                              })}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Youtube />
+                            </Link>
+                          </TooltipWrapper>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </Tilt>
           </div>
         </section>
