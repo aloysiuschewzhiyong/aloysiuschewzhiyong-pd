@@ -13,6 +13,8 @@ const ScrollDrivenScribbles: React.FC<ScrollDrivenScribblesProps> = ({
   const scribbleOverlayRef = useRef<HTMLDivElement | null>(null);
   const { theme } = useTheme();
 
+  
+
   useEffect(() => {
     if (pathRef.current) {
       const length = pathRef.current.getTotalLength();
@@ -20,6 +22,7 @@ const ScrollDrivenScribbles: React.FC<ScrollDrivenScribblesProps> = ({
       pathRef.current.style.strokeDasharray = `${length}`;
       pathRef.current.style.strokeDashoffset = `${length}`;
     }
+    
 
     if (scribbleOverlayRef.current) {
       scribbleOverlayRef.current.style.mixBlendMode =
@@ -34,15 +37,15 @@ const ScrollDrivenScribbles: React.FC<ScrollDrivenScribblesProps> = ({
   }, [theme]);
 
   return (
-    <div className="scroll-driven-scribbles flex">
-      <div className="relative grid h-[65vh] w-full ">
+    <div className="scroll-driven-scribbles flex rounded-full"  >
+      <div className="relative grid h-[50vh] w-full" >
         <div
           ref={scribbleOverlayRef}
-          className="scribble-overlay absolute z-20 w-full h-full flex justify-center items-center"
+          className="scribble-overlay absolute z-20 w-full h-full flex justify-center items-center rounded-3xl "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-  viewBox="-85 -100 727 1220.31"
+  viewBox="-20 -102 600 1040"
             strokeLinecap="round"
             strokeLinejoin="round"
             className="scribble-path w-full h-full"
@@ -63,6 +66,7 @@ const ScrollDrivenScribbles: React.FC<ScrollDrivenScribblesProps> = ({
             fill
             sizes="100%"
             style={{ objectFit: "cover" }}
+            className="rounded-3xl"
           />
         </div>
       </div>

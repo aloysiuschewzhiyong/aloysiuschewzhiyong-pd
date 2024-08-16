@@ -1,18 +1,22 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { FadeInWhenVisible } from "@/components/animations";
+import {
+  FadeInWhenVisible,
+  FadeInUpWhenVisible,
+} from "@/components/animations";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { BorderBeam } from "@/components/ui/border-beam";
 import ScrollDrivenScribbles from "@/components/scroll-scribble";
 import Image from "next/image";
 import Tilt from "react-parallax-tilt";
-import { Button } from "@/components/ui/button";
-import { Mail, Github, Linkedin } from "lucide-react";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { Mail, Github, Linkedin, Newspaper, Youtube, Menu } from "lucide-react";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { TooltipWrapper } from "@/components/tooltip";
+import Link from "next/link";
 
 import {
   BellIcon,
@@ -21,9 +25,9 @@ import {
   GlobeIcon,
   InputIcon,
 } from "@radix-ui/react-icons";
- 
+
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
- 
+
 const features = [
   {
     Icon: FileTextIcon,
@@ -91,15 +95,28 @@ function getDeviceType() {
 export default function Home() {
   const [deviceType, setDeviceType] = useState("Desktop");
 
+  const targetDivRef = useRef<HTMLDivElement>(null);
+
+
   useEffect(() => {
     const detectedDeviceType = getDeviceType();
     setDeviceType(detectedDeviceType);
     console.log("Device Type:", detectedDeviceType);
   }, []);
 
+  const scrollToDiv = () => {
+    if (targetDivRef.current) {
+      targetDivRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start", // or "center", "end", etc., depending on your need
+      });
+    }
+  };
+  
+
   return (
     <div className="relative">
-      <AuroraBackground>
+      <AuroraBackground className="h-dvh">
         <div className="relative w-full flex flex-col gap-4 items-center justify-center px-4">
           <motion.div
             initial={{ opacity: 0.0, y: 40 }}
@@ -128,6 +145,7 @@ export default function Home() {
               containerClassName="rounded-full"
               as="button"
               className="dark:bg-black/[0.4] bg-white/[0.99] backdrop-blur-md text-black dark:text-white flex items-center space-x-2"
+              onClick={scrollToDiv} // Add onClick to scroll to the target div
             >
               <span>Get started</span>
             </HoverBorderGradient>
@@ -136,97 +154,147 @@ export default function Home() {
       </AuroraBackground>
 
       <FadeInWhenVisible>
-        <section className="min-h-[100vh]">
-          <div className="relative max-w-6xl mx-auto p-6 sm:p-12 -mt-24 z-10">
+        <section className="min-h-[100vh]" ref={targetDivRef}> {/* Attach the ref to this section */}
+          <div className="relative max-w-6xl mx-auto p-6 sm:p-12 -mt-28 z-10">
             <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5}>
-              <div className="w-full rounded-2xl shadow-xl dark:shadow-reactive border bg-white/[0.69] dark:bg-black/[0.19] border-black/[0.1] dark:border-white/[0.2] backdrop-blur-md h-auto transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
-                {/* Conditionally render BorderBeam only if device type is not Mobile */}
-                {deviceType !== "Mobile" && <BorderBeam />}
-                <div className="flex justify-start items-center space-x-1.5 p-4">
-                  <span className="w-3 h-3 rounded-full bg-red-400 hover:bg-red-700"></span>
-                  <span className="w-3 h-3 rounded-full bg-yellow-400 hover:bg-yellow-500"></span>
-                  <span className="w-3 h-3 rounded-full bg-green-400 hover:bg-green-600"></span>
-                </div>
+            <div className="relative z-90  w-full rounded-2xl h-auto transform-gpu bg-transparent [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu  dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] sm:dark:[box-shadow:0_-20px_69px_-20px_#ffffff1f_inset] md:[box-shadow:0_-20px_75px_-20px_#ffffff1f_inset] transition-all duration-300 hover:shadow-lg hover:dark:[box-shadow:0_-35px_169px_-20px_#ffffff1f_inset]">
+  <div className="relative z-40 w-full rounded-2xl bg-white/[0.69] dark:bg-black/[0.39] dark:[border:1px_solid_rgba(255,255,255,.1)] backdrop-blur-md h-auto">
+    {/* Conditionally render BorderBeam only if device type is not Mobile */}
+    {deviceType !== "Mobile" && <BorderBeam />}
+    <div className="flex justify-start items-center space-x-1.5 p-4">
+      <span className="w-3 h-3 rounded-full bg-red-400 hover:bg-red-700"></span>
+      <span className="w-3 h-3 rounded-full bg-yellow-400 hover:bg-yellow-500"></span>
+      <span className="w-3 h-3 rounded-full bg-green-400 hover:bg-green-600"></span>
+    </div>
 
-                <div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-9 gap-0 items-center p-2">
-                    <div className="mx-10 mt-6 col-span-1 sm:col-span-1 md:col-span-4 text-white rounded">
-                      <ScrollDrivenScribbles imagePath="/IMG_1035.JPG" />
-                    </div>
-                    <div className="mx-10 col-span-1 sm:col-span-1 md:col-span-5 text-white rounded">
-                      <span className="bg-gradient-to-b from-gray-500 to-black bg-clip-text text-transparent dark:from-white dark:to-gray-400 font-bold leading-none text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-                        About Me
-                      </span>
+    <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-9 gap-0 items-center p-2 md:px-8 md:pb-10  xl:px-14 xl:pb-20 xl:pt-6 ">
+      <div
+  className="mx-10 mt-6 col-span-1 sm:col-span-1 md:col-span-4 text-white  z-10 rounded-full"
 
-                      <p className="mt-10 font-medium text-zinc-500 dark:text-zinc-300">
-                        Hi, my name is{" "}
-                        <span className="font-bold">Aloysius Chew</span> and I
-                        am a year 3 student at Republic Polytechnic studying
-                        Digital Design and Development and working towards being
-                        a developer. This website will feature some of my works
-                        in the projects tab.
-                      </p>
+>
+  <ScrollDrivenScribbles imagePath="/IMG_1035.JPG" />
+</div>
+        <div className="mx-10 col-span-1 sm:col-span-1 md:col-span-5 text-white rounded">
+          <span className="bg-gradient-to-b from-gray-500 to-black bg-clip-text text-transparent dark:from-white dark:to-gray-400 font-bold leading-none text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+            About Me
+          </span>
 
-                      <div className="flex mt-10 justify-between sm:justify-start sm:gap-2 md:gap-7 text-zinc-700 dark:text-zinc-300 pb-10 sm:pb-0">
-                        <TooltipWrapper
-                          name="Email"
-                          designation="Send me an email"
-                        >
-                          <Button variant={"outline"} size={"icon"}>
-                            <Mail />
-                          </Button>
-                        </TooltipWrapper>
+          <p className="mt-10 font-medium text-zinc-500 dark:text-zinc-300">
+            Hi, my name is 
+            <span className="font-bold"> Aloysius Chew</span> and I am a year 3 student at Republic Polytechnic studying Digital Design and Development and working towards being a developer. This website will feature some of my works in the projects tab.
+          </p>
 
-                        <TooltipWrapper
-                          name="Github"
-                          designation="Check out my repos"
-                        >
-                          <Button variant={"outline"} size={"icon"}>
-                            <Github />
-                          </Button>
-                        </TooltipWrapper>
+          <div className="flex mt-10 justify-between sm:justify-start sm:gap-2 md:gap-7 text-zinc-700 dark:text-zinc-300 pb-10 sm:pb-0">
+            <TooltipWrapper
+              name="Email"
+              designation="Send me an email"
+            >
+              <Link
+                href="mailto:aloysiuschewzhiyong@gmail.com"
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "icon",
+                })}
+              >
+                <Mail />
+              </Link>
+            </TooltipWrapper>
 
-                        <TooltipWrapper
-                          name="Linkedin"
-                          designation="Connect with me"
-                        >
-                          <Button variant={"outline"} size={"icon"}>
-                            <Linkedin />
-                          </Button>
-                        </TooltipWrapper>
+            <TooltipWrapper
+              name="Github"
+              designation="Check out my repos"
+            >
+              <Link
+                href="https://github.com/aloysiuschewzhiyong"
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "icon",
+                })}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github />
+              </Link>
+            </TooltipWrapper>
 
-                        <TooltipWrapper
-                          name="Email"
-                          designation="Drop me an email"
-                        >
-                          <Button variant={"outline"} size={"icon"}>
-                            <Mail />
-                          </Button>
-                        </TooltipWrapper>
+            <TooltipWrapper
+              name="Linkedin"
+              designation="Connect with me"
+            >
+              <Link
+                href="https://www.linkedin.com/in/aloysius-chew-880609244/"
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "icon",
+                })}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin />
+              </Link>
+            </TooltipWrapper>
 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <TooltipWrapper
+              name="Resume"
+              designation="Take a look at my resume"
+            >
+              <Link
+                href="/resume.pdf"
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "icon",
+                })}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Newspaper />
+              </Link>
+            </TooltipWrapper>
+
+            <TooltipWrapper
+              name="Youtube"
+              designation="Support my hobby"
+            >
+              <Link
+                href="https://www.youtube.com/@chikennuggetcurrysauce"
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "icon",
+                })}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Youtube />
+              </Link>
+            </TooltipWrapper>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
             </Tilt>
           </div>
         </section>
       </FadeInWhenVisible>
 
-      <FadeInWhenVisible>
-        <section className="min-h-[100vh]">
-          <div className="relative max-w-6xl mx-auto p-6 sm:p-12 -mt-24 z-10">
+      <FadeInUpWhenVisible>
+        <section className="min-h-[100dvh]">
+          <div className="relative max-w-6xl mx-auto p-6 sm:p-12 z-10">
             <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5}>
-            <BentoGrid className="lg:grid-rows-3">
-      {features.map((feature) => (
-        <BentoCard key={feature.name} {...feature} />
-      ))}
-    </BentoGrid>
+              <BentoGrid className="lg:grid-rows-3">
+                {features.map((feature) => (
+                  <BentoCard key={feature.name} {...feature} />
+                ))}
+              </BentoGrid>
             </Tilt>
           </div>
         </section>
-      </FadeInWhenVisible>
+      </FadeInUpWhenVisible>
     </div>
   );
 }
