@@ -157,7 +157,7 @@ export default function Home() {
           {/* Attach the ref to this section */}
           <div className="relative max-w-6xl mx-auto p-6 sm:p-8 md:p-10 lg:p-12 -mt-28 z-10">
             <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5}>
-              <div className="relative z-90  w-full rounded-2xl h-auto transform-gpu bg-transparent [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu  dark:[box-shadow:0_-10px_85px_-20px_#ffffff1f_inset] sm:dark:[box-shadow:0_-20px_69px_-20px_#ffffff1f_inset] md:[box-shadow:0_-20px_75px_-20px_#ffffff00_inset] transition-all duration-300 hover:[box-shadow:0_-35px_169px_-20px_#fffff000_inset] hover:dark:[box-shadow:0_-35px_172px_-20px_#ffffff1f_inset]">
+              <div className="relative z-90  w-full rounded-2xl h-auto transform-gpu bg-transparent [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu  dark:[box-shadow:0_-10px_100px_-30px_#ffffff1f_inset] sm:dark:[box-shadow:0_-20px_69px_-20px_#ffffff1f_inset] md:[box-shadow:0_-20px_75px_-20px_#ffffff00_inset] lg:[box-shadow:0_-5px_100px_-80px_#ffffff1f_inset] transition-all duration-300 hover:[box-shadow:0_-35px_169px_-20px_#fffff000_inset] hover:dark:[box-shadow:0_-35px_172px_-20px_#ffffff1f_inset]">
                 <div className="relative z-40 w-full rounded-2xl bg-white/[0.69] dark:bg-black/[0.39] dark:[border:1px_solid_rgba(255,255,255,.1)] border backdrop-blur-md h-auto shadow-lg dark:shadow-reactive">
                   {/* Conditionally render BorderBeam only if device type is not Mobile */}
                   {deviceType !== "Mobile" && <BorderBeam />}
@@ -168,11 +168,11 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-9 gap-0 items-center mx-2 my-6 md:px-8 md:pb-10 lg:p-2  xl:px-14 xl:pb-16 xl:pt-6 ">
-                      <div className="m-12 sm:m-3 lg:m-20 xl:m-10 col-span-1 sm:col-span-1 md:col-span-4 text-white  z-10 rounded-full">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-9 gap-0 flex items-center mx-2 my-6 md:px-8 md:pb-10 lg:p-2  xl:px-14 xl:pb-16 xl:pt-6 ">
+                      <div className="self-center sm:mb-14 sm:ml-10  lg:m-20 xl:m-10 col-span-1 sm:col-span-1 md:col-span-4 text-white  z-10">
                         <ScrollDrivenScribbles imagePath="/IMG_1035.JPG" />
                       </div>
-                      <div className="mx-10 mt-12 sm:mt-0 col-span-1 sm:col-span-1 md:col-span-5 text-white rounded">
+                      <div className="mx-10 mt-12 sm:ml-0 col-span-1 sm:col-span-1 md:col-span-5 text-white rounded">
                         <span className="bg-gradient-to-b from-gray-500 to-black bg-clip-text text-transparent dark:from-white dark:to-gray-400 font-bold leading-none text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
                           About Me
                         </span>

@@ -36,11 +36,11 @@ const ScrollDrivenScribbles: React.FC<ScrollDrivenScribblesProps> = ({
   }, [theme]);
 
   return (
-    <div className="scroll-driven-scribbles flex rounded-full"  >
-      <div className="relative grid h-[55dvh] sm:h-[38dvh] lg:h-[45dvh] xl:h-[50dvh] w-full" >
+    <div className="scroll-driven-scribbles rounded-full"  >
+      <div className="relative grid h-[30dvh] sm:h-[38dvh] lg:h-[45dvh] xl:h-[50dvh] w-[55%] sm:w-[82%] md:w-[85%] lg:w-[93%] " >
         <div
           ref={scribbleOverlayRef}
-          className="scribble-overlay absolute z-20 w-full h-full flex justify-center items-center rounded-[40px] "
+          className="scribble-overlay absolute z-20 w-full h-full flex justify-center items-center rounded-[55px] "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ const ScrollDrivenScribbles: React.FC<ScrollDrivenScribblesProps> = ({
             fill
             sizes="100%"
             style={{ objectFit: "cover" }}
-            className="rounded-[55px]"
+            className="rounded-[57px]"
           />
         </div>
       </div>
