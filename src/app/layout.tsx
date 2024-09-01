@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/navbar";
+import LenisScroll from "@/components/LenisScroll";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
           { "debug-screens": process.env.NODE_ENV === "development" }
         )}
       >
+        <LenisScroll />
         <ThemeProvider attribute="class" defaultTheme="light">
           <Navbar />
           <div>{children}</div>
