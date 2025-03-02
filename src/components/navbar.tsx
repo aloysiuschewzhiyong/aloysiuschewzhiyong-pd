@@ -1,6 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
+import {
+  HoveredLink,
+  Menu,
+  MenuItem,
+  ProductItem,
+} from "@/components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/ui/mode-toggle"; // Adjust the import path as necessary
 import { motion, useAnimation } from "framer-motion";
@@ -35,62 +40,71 @@ export function Navbar({ className }: { className?: string }) {
     <motion.div
       className={cn("fixed top-5 inset-x-0 max-w-2xl mx-auto z-50", className)}
       animate={controls}
-      initial={{ y: -100 }} // Start with the navbar hidden
-      transition={{ type: "tween" }}
+      initial={{ y: -100 }}
+      transition={{
+        type: "tween",
+        duration: 0.2,
+        ease: "easeOut",
+      }}
     >
       <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="Home">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">Web Development</HoveredLink>
-            <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-            <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/branding">Branding</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="About me">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">Web Development</HoveredLink>
-            <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-            <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/branding">Branding</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Projects">
+        <MenuItem
+          setActive={setActive}
+          active={active}
+          item="Home"
+          href="/#home"
+        />
+        <MenuItem
+          setActive={setActive}
+          active={active}
+          item="About me"
+          href="/#about"
+        />
+        <MenuItem
+          setActive={setActive}
+          active={active}
+          item="Skills & Experience"
+          href="/#skills"
+        />
+        <MenuItem
+          setActive={setActive}
+          active={active}
+          item="Projects"
+          href="/#projects"
+        >
           <div className="text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
-              title="Algochurn"
-              href="https://algochurn.com"
-              src="https://assets.aceternity.com/demos/algochurn.webp"
-              description="Prepare for tech interviews like never before."
+              title="Notflix"
+              href="https://notflix0.vercel.app/"
+              src="/projectCardImg/notflix0.vercel.app_.png"
+              description="A free movies and TV shows streaming platform with no ads."
             />
             <ProductItem
-              title="Tailwind Master Kit"
-              href="https://tailwindmasterkit.com"
-              src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-              description="Production ready Tailwind css components for your next project"
+              title="Task Manager Pro"
+              href="#"
+              src="https://assets.aceternity.com/demos/default.webp"
+              description="Full-stack task management app with real-time updates and team collaboration."
             />
             <ProductItem
-              title="Moonbeam"
-              href="https://gomoonbeam.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-              description="Never write from scratch again. Go from idea to blog in minutes."
+              title="Weather Dashboard"
+              href="#"
+              src="https://assets.aceternity.com/demos/default.webp"
+              description="Real-time weather tracking with interactive maps and forecasts."
             />
             <ProductItem
-              title="Rogue"
-              href="https://userogue.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-              description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
+              title="Portfolio Website"
+              href="#"
+              src="https://assets.aceternity.com/demos/default.webp"
+              description="Modern portfolio built with Next.js, Framer Motion, and TailwindCSS."
             />
           </div>
         </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Contact">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-          </div>
-        </MenuItem>
+        <MenuItem
+          setActive={setActive}
+          active={active}
+          item="Contact"
+          href="/#contact"
+        />
         <ModeToggle />
       </Menu>
     </motion.div>

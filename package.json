@@ -9,22 +9,28 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-icons": "^1.3.0",
-    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-scroll-area": "^1.2.3",
+    "@radix-ui/react-slot": "^1.1.2",
     "aloysiuschewzhiyong-pd": "file:",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.21",
     "lenis": "^1.1.13",
     "lucide-react": "^0.424.0",
-    "next": "14.2.5",
+    "motion": "^12.0.6",
+    "next": "14.2.6",
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
     "react-parallax-tilt": "^1.7.236",
+    "resend": "^4.1.2",
+    "sonner": "^1.7.4",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
-    "tailwindcss-debug-screens": "^2.2.1"
+    "tailwindcss-debug-screens": "^2.2.1",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@types/node": "^20",

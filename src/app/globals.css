@@ -25,6 +25,11 @@
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
   }
 
   .dark {
@@ -47,14 +52,16 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
   }
 
   html {
     scroll-behavior: smooth;
   }
-
-
-  
 
   /* Hide scrollbar for Chrome, Safari and Opera */
   .scrollable-container::-webkit-scrollbar {
@@ -63,10 +70,9 @@
 
   /* Hide scrollbar for IE, Edge and Firefox */
   .scrollable-container {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
-
 
   .faded-edges {
     position: relative;
@@ -74,14 +80,27 @@
   }
 
   .faded-edges::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -10px;
     left: -10px;
     right: -10px;
     bottom: -10px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 1) 100%);
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0) 60%,
+      rgba(255, 255, 255, 1) 100%
+    );
     pointer-events: none;
     z-index: 1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

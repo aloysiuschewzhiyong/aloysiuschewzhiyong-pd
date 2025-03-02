@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
-import { Navbar } from "@/components/navbar";
-import LenisScroll from "@/components/LenisScroll";
+import { ClientLayout } from "@/components/client-layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scrollable-container">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
       <body
         className={cn(
           "min-h-screen w-full flex overflow-auto bg-background",
@@ -28,11 +32,7 @@ export default function RootLayout({
           { "debug-screens": process.env.NODE_ENV === "development" }
         )}
       >
-        <LenisScroll />
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <Navbar />
-          <div>{children}</div>
-        </ThemeProvider>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
