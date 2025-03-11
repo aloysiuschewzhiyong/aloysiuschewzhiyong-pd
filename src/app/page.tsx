@@ -446,7 +446,7 @@ export default function Home() {
 
                   <div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-9 gap-0 flex items-center mx-2 my-6 md:px-8 md:pb-10 lg:p-2  xl:px-14 xl:pb-16 xl:pt-6 ">
-                      <div className="self-center ml-10 sm:mb-14 sm:ml-10  lg:m-20 xl:m-10 col-span-1 sm:col-span-1 md:col-span-4 text-white  z-10">
+                      <div className="self-center mx-auto sm:ml-10 sm:mb-14 lg:m-20 xl:m-10 col-span-1 sm:col-span-1 md:col-span-4 text-white  z-10">
                         <ScrollDrivenScribbles imagePath="/IMG_1035.JPG" />
                       </div>
                       <div className="mx-10 mt-12 sm:ml-0 col-span-1 sm:col-span-1 md:col-span-5 text-white rounded">
@@ -715,7 +715,7 @@ export default function Home() {
                           viewBox="0 0 24 22"
                           fill="currentColor"
                         >
-                          <path d="M11.39 8.269c.19-.277.397-.312.565-.312.168 0 .447.035.637.312 1.49 2.03 3.95 6.075 5.765 9.06 1.184 1.945 2.093 3.44 2.28 3.63.7.714 1.66.269 2.218-.541.549-.797.701-1.357.701-1.954 0-.407-7.958-15.087-8.759-16.309C14.027.98 13.775.683 12.457.683h-.988c-1.315 0-1.505.297-2.276 1.472C8.392 3.377.433 18.057.433 18.463c0 .598.153 1.158.703 1.955.558.81 1.518 1.255 2.218.54.186-.19 1.095-1.684 2.279-3.63 1.815-2.984 4.267-7.029 5.758-9.06z" />
+                          <path d="M11.39 8.269c.19-.277.397-.312.565-.312.168 0 .447.035.637.312 1.49 2.03 3.95 6.075 5.765 5.765 9.06 1.184 1.945 2.093 3.44 2.28 3.63.7.714 1.66.269 2.218-.541.549-.797.701-1.357.701-1.954 0-.407-7.958-15.087-8.759-16.309C14.027.98 13.775.683 12.457.683h-.988c-1.315 0-1.505.297-2.276 1.472C8.392 3.377.433 18.057.433 18.463c0 .598.153 1.158.703 1.955.558.81 1.518 1.255 2.218.54.186-.19 1.095-1.684 2.279-3.63 1.815-2.984 4.267-7.029 5.758-9.06z" />
                         </svg>
                         <span>Expo</span>
                       </div>

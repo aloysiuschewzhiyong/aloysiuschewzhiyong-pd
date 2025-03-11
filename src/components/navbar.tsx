@@ -57,13 +57,13 @@ export function Navbar({ className }: { className?: string }) {
         <MenuItem
           setActive={setActive}
           active={active}
-          item="About me"
+          item="About"
           href="/#about"
         />
         <MenuItem
           setActive={setActive}
           active={active}
-          item="Skills & Experience"
+          item="Skills"
           href="/#skills"
         />
         <MenuItem
