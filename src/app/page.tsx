@@ -786,7 +786,7 @@ export default function Home() {
                     </p>
                     <div className="inline-flex items-center gap-1.5 mt-2 text-xs bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-lg">
                       <span className="w-1 h-1 rounded-full bg-emerald-500"></span>
-                      Apr 2022 - Present
+                      Apr 2022 - May 2025
                     </div>
                     <div className="mt-4 space-y-2">
                       <div className="text-sm text-zinc-600 dark:text-zinc-400">
@@ -794,8 +794,9 @@ export default function Home() {
                           Awards & Achievements
                         </span>
                         <ul className="mt-2 list-disc list-inside pl-2 space-y-1">
-                          <li>Director&apos;s List (AY2023/24 Semester 1)</li>
-                          <li>GPA: i am cooked/4.0</li>
+                          <li>Director&apos;s List (AY2023 Semester 2)</li>
+                          <li>Director&apos;s List (AY2024 Semester 2)</li>
+                          <li>GPA: 3.56/4.0</li>
                         </ul>
                       </div>
                     </div>
