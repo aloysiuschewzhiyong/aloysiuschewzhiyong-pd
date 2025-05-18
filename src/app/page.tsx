@@ -39,7 +39,7 @@ import {
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Toaster, toast } from "sonner";
-
+import { PointerHighlight } from "@/components/ui/pointer-highlight";
 // Add TypeScript interfaces
 interface Project {
   id: number;
@@ -407,10 +407,19 @@ export default function Home() {
                 className="inline-block cursor-pointer pointer-events-auto"
               >
                 👋
-              </motion.span>
+              </motion.span>{" "}
               <span className="bg-gradient-to-b from-gray-500 to-black bg-clip-text text-transparent dark:from-white dark:to-gray-400">
-                , my name is Aloysius
+                , my name is{" "}
               </span>
+              <PointerHighlight
+                rectangleClassName="bg-blue-100/80 dark:bg-white/[0.03] border-blue-300/80 dark:[border:1px_solid_rgba(255,255,255,.3)] leading-loose backdrop-blur-md"
+                pointerClassName="text-blue-500 dark:text-zinc-100 h-3 w-3"
+                containerClassName="inline-block mx-1"
+              >
+                <span className="relative z-10 bg-gradient-to-b from-gray-500 to-black bg-clip-text text-transparent dark:from-white dark:to-gray-400">
+                  Aloysius
+                </span>
+              </PointerHighlight>
             </span>
 
             <p className="text-zinc-600 dark:text-zinc-200 text-lg mb-3">
